@@ -1,6 +1,9 @@
 ## Workspaces Maintenance Lambda Function
 This code is designed to be executed via a scheduled CloudWatch event and will start any Workspaces that are currently in a "Stopped" state.  This is intended to give administrators more control around when Workspaces receive Windows and application updates.  
 
+#### A Word of Caution
+**Please note that I cannot commit to supporting the provided code.  This is meant to be used as an example and requires further testing to be used in a production environment**
+
 #### Requirements
 - Golang 1.x (https://golang.org/dl/)
 - glide (https://glide.sh/)
@@ -18,6 +21,3 @@ This code is designed to be executed via a scheduled CloudWatch event and will s
 1. Add CloudFormation stack to deploy automatically
 1. Add support for Workspaces tags (only act on workspaces with a specific tag value)
 1. Add 'dry-run' support
-
-#### A Word of Caution
-**Please note that I cannot commit to supporting the provided code.  This is meant to be used as an example and requires further testing to be used in a production environment**
