@@ -14,7 +14,10 @@ This code is designed to be executed via a scheduled CloudWatch event and will s
 1. Upload the zip (from the Build Step) as the Lambda "Function package" and set the handler to `wm`
 1. Test the function (event content doesn't matter at this point)
 
-
+#### To Do
+1. Add CloudFormation stack to deploy automatically
+1. Add support for Workspaces tags (only act on workspaces with a specific tag value)
+1. Add 'dry-run' support
 
 #### A Word of Caution
 **Please note that I cannot commit to supporting the provided code.  This is meant to be used as an example and requires further testing to be used in a production environment**
