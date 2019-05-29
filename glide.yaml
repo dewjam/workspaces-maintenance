@@ -1,0 +1,8 @@
+package: github.com/dewjam/workspaces-maintenance
+import:
+- package: "github.com/aws/aws-lambda-go/lambda"
+  version: v1.11.0
+- package: "github.com/aws/aws-sdk-go"
+  version: v1.19.39
+- package: "github.com/stretchr/testify/assert"
+  version: v1.3.0
