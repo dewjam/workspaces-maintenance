@@ -13,3 +13,8 @@ This code is designed to be executed via a scheduled CloudWatch event and will s
 1. Create a new Lambda function from scratch (make sure the IAM role has the capability to describe/start/stop AWS Workspaces)
 1. Upload the zip (from the Build Step) as the Lambda "Function package" and set the handler to `wm`
 1. Test the function (event content doesn't matter at this point)
+
+
+
+#### A Word of Caution
+**Please note that I cannot commit to supporting the provided code.  This is meant to be used as an example and requires further testing to be used in a production environment**
