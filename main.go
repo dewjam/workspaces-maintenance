@@ -33,6 +33,8 @@ func HandleRequest(ctx context.Context, tag ScheduledEvent) (string, error) {
 	return fmt.Sprintf("started workspaces: %s", stoppedWorkspaces), nil
 }
 
+// getStoppedWorkspaces loops through the list of workspaces and gets those
+// in a stopped state
 func getStoppedWorkspaces(w []*workspaces.Workspace) [][]*workspaces.StartRequest {
 	var stoppedWorkspaces []*workspaces.StartRequest
 	for i := range w {
@@ -44,12 +46,14 @@ func getStoppedWorkspaces(w []*workspaces.Workspace) [][]*workspaces.StartReques
 	return chunkStartRequest(stoppedWorkspaces)
 }
 
+// chunkStartRequest takes the list of workspaces and breaks them up into
+// groups of 25.  This is the max number of workspaces that can be started at
+// one time.
 func chunkStartRequest(w []*workspaces.StartRequest) [][]*workspaces.StartRequest {
 	var chunkedStartRequest [][]*workspaces.StartRequest
-	i := len(w)
-	for i > 25 {
+	var i int
+	for i = len(w); i > 25; i -= 25 {
 		chunkedStartRequest = append(chunkedStartRequest, w[i-25:i])
-		i -= 25
 	}
 	chunkedStartRequest = append(chunkedStartRequest, w[:i])
 	return chunkedStartRequest
